@@ -1,0 +1,25 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+#app {
+    padding: 3rem 0;
+}
+
+.btn_group {
+    margin: 1rem 0;
+}
+
+.showImageList {
+    display: inline;
+    margin-right: 0.2rem;
+}
+
+.dialog-footer {
+    text-align: center;
+}

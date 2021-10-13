@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提取gif动画帧</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="css/element-ui.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-upload class="upload-demo" :auto-upload="false" drag action="#" accept="image/gif" :show-file-list="false" :on-change="imgSaveToUrl">
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">将GIF动图拖到此处，或<em>点击上传</em></div>
+            <div class="el-upload__tip" slot="tip">只能上传gif文件，且文件不能太大</div>
+        </el-upload>
+        <el-button-group class="btn_group">
+            <el-button type="primary" icon="el-icon-download" @click="batchDownload">打包下载</el-button>
+            <el-button type="primary" icon="el-icon-coin" disabled>合成GIF</el-button>
+            <el-button type="primary" icon="el-icon-receiving" disabled>批量处理</el-button>
+        </el-button-group>
+        <div v-loading="loading" style="padding-top: 2.3rem;">
+            <div v-for="item in imgae_List" :key="item" class="showImageList" @click="EnlargeImages(item)">
+                <el-image style="width: 100px" :src="item" fit="scale-down">
+                </el-image>
+            </div>
+        </div>
+        <el-dialog title="图片查看" :visible.sync="dialogVisible" width="50%">
+            <el-image :src="showImage" fit="contain">
+            </el-image>
+            <div class="dialog-footer">
+                <el-button type="primary" @click="copyImage">复制</el-button>
+                <el-button type="primary" @click="downloadImage">下载</el-button>
+            </div>
+        </el-dialog>
+    </div>
+</body>
+<!-- 引入所需第三方库 -->
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/element-ui.js"></script>
+
+<script type="text/javascript" src="js/libgif.js"></script>
+<script type="text/javascript" src="js/jszip.min.js"></script>
+<script type="text/javascript" src="js/FileSaver.js"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+
+</html>
